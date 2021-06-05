@@ -10,27 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char			*subst;
-	unsigned int	i;
-	unsigned int	j;
+	char	*substr;
+	size_t	s_len;
+	size_t	max_len;
 
-	i = 0;
-	j = 0;
-	subst = malloc((sizeof(char) * sizeof(s - start)) * len);
-	while (i < start)
-		i++;
-	while (j < len && s[i] != '\0')
-	{
-		subst[j] = s[i];
-		i++;
-		j++;
-	}	
-	subst[j] = '\0';
-	return (subst);
+	s_len = ft_strlen((char *)s);
+	if (start < s_len)
+		max_len = s_len - start;
+	else
+		max_len = 0;
+	if (max_len > len)
+		max_len = len;
+	substr = malloc(sizeof(char) * (max_len + 1));
+	if (!substr)
+		return (NULL);
+	ft_strlcpy(substr, s + start, max_len + 1);
+	return (substr);
 }

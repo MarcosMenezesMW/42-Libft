@@ -10,38 +10,47 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
 #include "libft.h"
 
-static char	**ft_strarray(char const *s, char c)
+static int	count_words(char const *s, char c)
 {
-	size_t		counter;
-	char		**str;
-
-	counter = 0;
-	while (*s)
-	{
-		if (*s == c)
-			s++;
-		else
-		{
-			counter++;
-			s++;
-		}
-	}
-	str = (char **)malloc((counter + 1) * sizeof(char *));
-	return (str);
-}
-
-static int	str_size(const char *s, int start, char c)
-{
-	int	i;
+	size_t i;
+	size_t words;
 
 	i = 0;
-	while (s[start] != c && s[start++] != '\0')
+	words = 0;
+	while (*s == c && *s)
+		s++;
+	while (s[i])
+	{
+		if (!i)
+			words++;
+		else if (s[i - 1] == c && s[i] != c)
+			words++;
+		i++;
+	}
+	return (words);
+}
+
+static size_t	str_size(const char *s, char c)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] != c && s[i])
 		i++;
 	return (i);
+}
+
+static char	**ft_free(char **str, size_t size)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < size)
+		free(str[i]);
+	free(str);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
@@ -51,23 +60,21 @@ char	**ft_split(char const *s, char c)
 	int		k;
 	int		counter;
 
-	str_array = ft_strarray(s, c);
+	counter = (count_words(s, c));
+	str_array = malloc(sizeof(char *) * (counter + 1));
 	j = 0;
-	counter = 0;
-	if (!s || !str_array)
+	if (!str_array)
 		return (NULL);
-	while (s[j] != '\0')
+	while (j < counter)
 	{
-		if (s[j] == c && s[j] != '\0')
-			j++;
-		else
-		{
-			k = 0;
-			str_array[counter] = malloc(sizeof(char) * (str_size(s, j, c) + 1));
-			while (s[j] != c && s[j] != '\0')
-				str_array[counter][k++] = s[j++];
-			str_array[counter++][k] = '\0';
-		}
+		while (*s == c && *s)
+			s++;
+		k = str_size(s, c);
+		str_array[j] = ft_substr(s, 0, k);
+		if (!str_array[j])
+			return (ft_free(str_array, j));
+		s+= k + 1;
+		j++;
 	}
 	str_array[counter] = NULL;
 	return (str_array);

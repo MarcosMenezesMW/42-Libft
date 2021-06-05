@@ -10,24 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	char	*p_dst;
 	size_t	i;
+	size_t	last_char;
 
-	p_dst = dst;
 	i = 0;
-	if (size > 0)
+	last_char = 0;
+	while (src[i] != '\0')
 	{
-		while (i < size - 1 && src[i] != '\0')
+		if (i + 1 < size)
 		{
-			p_dst[i] = src[i];
-			i++;
+			last_char++;
+			dst[i] = src[i];
 		}
-		p_dst[i] = '\0';
+		i++;
 	}
-	return (ft_strlen(src));
+	if (size > 0)
+		dst[last_char] = '\0';
+	return (i);
 }
