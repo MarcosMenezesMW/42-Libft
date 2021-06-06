@@ -6,7 +6,7 @@
 /*   By: mameneze <mwmms@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 00:25:40 by mameneze          #+#    #+#             */
-/*   Updated: 2021/06/06 01:12:24 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/06/06 13:33:49 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void    ft_lstclear(t_list **lst, void(*del)(void *))
     while (*lst)
     {
         temp = (*(lst))->next;
-        ft_lstdelone(*lst, del);
+        del((*(lst))->content);
         *lst = temp;
     }
 }

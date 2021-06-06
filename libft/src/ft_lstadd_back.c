@@ -6,7 +6,7 @@
 /*   By: mameneze <mwmms@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 18:00:53 by mameneze          #+#    #+#             */
-/*   Updated: 2021/06/06 00:07:17 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/06/06 13:38:00 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void ft_lstadd_back (t_list **lst, t_list *new)
 {
-    t_list  *lastnode;
 
-    lastnode = ft_lstlast(*lst);
-    if (lastnode)
-        lastnode->next = new;
-    else
-        *lst = new;
+    while ((*(lst))->next != NULL)
+		*lst = (*(lst))->next;
+    if ((*(lst))->next == NULL)
+		(*(lst))->next = new;
+	else
+    	*lst = new;
 }
