@@ -3,8 +3,6 @@ FLAGS 		=	-Wall -Wextra -Werror
 
 INC_DIR 	=	src
 
-BONUS_DIR 	=	bonus_part
-
 LIB_DIR 	=	lib
 
 CC 			=	gcc
@@ -24,7 +22,7 @@ BONUS_FILES	=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_
 
 SRCS 		=	$(addprefix $(INC_DIR)/,$(SRC_FILES))
 
-BONUS_SRCS	=	$(addprefix $(BONUS_DIR)/,$(BONUS_FILES))
+BONUS_SRCS	=	$(addprefix $(INC_DIR)/,$(BONUS_FILES))
 
 OBJS 		=	$(SRCS:c=o)
 

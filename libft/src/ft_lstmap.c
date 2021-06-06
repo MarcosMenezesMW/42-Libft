@@ -6,7 +6,7 @@
 /*   By: mameneze <mwmms@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 01:19:59 by mameneze          #+#    #+#             */
-/*   Updated: 2021/06/06 13:42:11 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/06/06 17:52:51 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,20 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(f)(void *), void (*del)(void *))
 {
-    t_list	*new_element;
-	t_list	*lst_element;
-	
-	lst_element = NULL;
+	t_list	*new_element;
+	t_list	*new_list;
+
+	new_list = NULL;
 	while (lst)
 	{
-		new_element = malloc(sizeof(t_list));
-		new_element = f(lst->content);
+		new_element = ft_lstnew(f(lst->content));
 		if (!new_element)
 		{
-			del(lst_element->content);
-			free(lst_element);
+			ft_lstclear(&new_list, del);
+			return (NULL);
 		}
-		while (lst_element->next != NULL)
-			lst_element = lst_element->next;
-		lst_element->next = new_element;
+		ft_lstadd_back(&new_list, new_element);
 		lst = lst->next;
 	}
-	return (lst_element);
+	return (new_list);
 }

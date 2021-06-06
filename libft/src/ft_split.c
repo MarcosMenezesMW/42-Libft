@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 21:14:00 by mameneze          #+#    #+#             */
-/*   Updated: 2021/06/06 12:45:54 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/06/06 17:26:07 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	count_words(char const *s, char c)
 {
-	size_t i;
-	size_t words;
+	size_t	i;
+	size_t	words;
 
 	i = 0;
 	words = 0;
@@ -73,7 +73,7 @@ char	**ft_split(char const *s, char c)
 		str_array[j] = ft_substr(s, 0, k);
 		if (!str_array[j])
 			return (ft_free(str_array, j));
-		s+= k + 1;
+		s += k + 1;
 		j++;
 	}
 	str_array[counter] = NULL;

@@ -6,19 +6,21 @@
 /*   By: mameneze <mwmms@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 18:00:53 by mameneze          #+#    #+#             */
-/*   Updated: 2021/06/06 13:38:00 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/06/06 17:28:50 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstadd_back (t_list **lst, t_list *new)
+void	ft_lstadd_back (t_list **lst, t_list *new)
 {
+	t_list	*tmp;
 
-    while ((*(lst))->next != NULL)
-		*lst = (*(lst))->next;
-    if ((*(lst))->next == NULL)
-		(*(lst))->next = new;
+	if (!lst || !new)
+		return ;
+	tmp = ft_lstlast(*lst);
+	if (tmp)
+		tmp->next = new;
 	else
-    	*lst = new;
+		*lst = new;
 }
