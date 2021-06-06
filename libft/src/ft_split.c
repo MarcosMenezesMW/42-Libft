@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 21:14:00 by mameneze          #+#    #+#             */
-/*   Updated: 2021/06/03 18:55:57 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/06/06 12:45:54 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char	**ft_split(char const *s, char c)
 	counter = (count_words(s, c));
 	str_array = malloc(sizeof(char *) * (counter + 1));
 	j = 0;
-	if (!str_array)
+	if (!s || !str_array)
 		return (NULL);
 	while (j < counter)
 	{

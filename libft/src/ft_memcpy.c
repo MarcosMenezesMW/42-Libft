@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 22:57:57 by user42            #+#    #+#             */
-/*   Updated: 2021/06/03 19:38:06 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/06/06 12:26:38 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	p_dest = dest;
 	p_src = (unsigned char *)src;
 	i = 0;
+	if (!p_dest && !p_src)
+		return (NULL);
 	while (i < n)
 	{
 		p_dest[i] = p_src[i];

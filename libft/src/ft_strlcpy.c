@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 23:11:02 by user42            #+#    #+#             */
-/*   Updated: 2021/05/25 22:50:32 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/06/06 12:39:54 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 
 	i = 0;
 	last_char = 0;
+	if (!src)
+		return (0);
 	while (src[i] != '\0')
 	{
 		if (i + 1 < size)

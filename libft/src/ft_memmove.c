@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 20:29:30 by user42            #+#    #+#             */
-/*   Updated: 2021/06/03 19:38:10 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/06/06 12:34:55 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	p_dest = (unsigned char *)dest;
 	p_src = (unsigned char *)src;
 	i = 0 ;
+	if (!p_dest && !p_src)
+		return (NULL);
 	if (p_dest > p_src)
 		while (n-- > 0)
 			p_dest[n] = p_src[n];

@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 23:33:13 by mameneze          #+#    #+#             */
-/*   Updated: 2021/06/03 19:39:30 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/06/06 12:41:17 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	s_len;
 	size_t	max_len;
 
+	if (!s)
+		return (NULL);
 	s_len = ft_strlen((char *)s);
 	if (start < s_len)
 		max_len = s_len - start;
