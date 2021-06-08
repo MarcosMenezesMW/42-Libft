@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mameneze <mameneze@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: mameneze <mwmms@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 17:29:56 by user42            #+#    #+#             */
-/*   Updated: 2021/06/03 19:35:42 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/06/07 20:35:18 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)

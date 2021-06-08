@@ -1,10 +1,6 @@
 
 FLAGS 		=	-Wall -Wextra -Werror
 
-INC_DIR 	=	src
-
-LIB_DIR 	=	lib
-
 CC 			=	gcc
 
 NAME		=	libft.a
@@ -20,9 +16,9 @@ SRC_FILES 	=	ft_atoi.c ft_isascii.c ft_memcmp.c ft_strchr.c ft_strlen.c \
 BONUS_FILES	=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
 				ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-SRCS 		=	$(addprefix $(INC_DIR)/,$(SRC_FILES))
+SRCS 		=	$(SRC_FILES)
 
-BONUS_SRCS	=	$(addprefix $(INC_DIR)/,$(BONUS_FILES))
+BONUS_SRCS	=	$(BONUS_FILES)
 
 OBJS 		=	$(SRCS:c=o)
 
@@ -32,14 +28,12 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@ar rcs $(NAME) $(OBJS)
-	@echo "$(NAME) created"	$?
 
 bonus: $(BONUS_OBJS) $(NAME)
 	@ar rcs $(NAME) $(BONUS_OBJS)
-	@echo "$(NAME) created"
 
 %.o: %.c
-	@gcc $(FLAGS) -I $(LIB_DIR) -c $< -o $@
+	@gcc $(FLAGS) -I /libft -c $< -o $@
 	@echo "$@ created from $<"
 
 clean:

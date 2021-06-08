@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mameneze <mameneze@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: mameneze <mwmms@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/18 23:03:48 by user42            #+#    #+#             */
-/*   Updated: 2021/06/03 19:37:57 by mameneze         ###   ########.fr       */
+/*   Created: 2021/05/23 20:06:08 by user42            #+#    #+#             */
+/*   Updated: 2021/06/07 20:35:14 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned char	*p_s;
-	size_t			i;
+	size_t	i;
 
-	p_s = (unsigned char *)s;
 	i = 0;
-	while (i < n)
-	{
-		if (p_s[i] == (unsigned char)c)
-			return (p_s + i);
+	while (s1[i] == s2[i] && s1[i] && s2[i] && i < n)
 		i++;
-	}
-	return (NULL);
+	if (i != n)
+		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	return (0);
 }

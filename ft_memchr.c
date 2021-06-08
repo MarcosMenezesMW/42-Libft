@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mameneze <mameneze@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: mameneze <mwmms@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/17 22:01:46 by user42            #+#    #+#             */
-/*   Updated: 2021/06/03 19:37:18 by mameneze         ###   ########.fr       */
+/*   Created: 2021/05/18 23:03:48 by user42            #+#    #+#             */
+/*   Updated: 2021/06/07 20:34:11 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
-void	ft_bzero(void *str, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	*p_str;
+	unsigned char	*p_s;
+	size_t			i;
 
-	p_str = str;
-	while (n > 0)
+	p_s = (unsigned char *)s;
+	i = 0;
+	while (i < n)
 	{
-		*p_str = '\0';
-		p_str++;
-		n--;
+		if (p_s[i] == (unsigned char)c)
+			return (p_s + i);
+		i++;
 	}
+	return (NULL);
 }

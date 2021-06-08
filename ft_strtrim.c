@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mameneze <mameneze@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: mameneze <mwmms@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 22:21:07 by user42            #+#    #+#             */
-/*   Updated: 2021/06/03 19:34:34 by mameneze         ###   ########.fr       */
+/*   Created: 2021/05/26 20:17:06 by mameneze          #+#    #+#             */
+/*   Updated: 2021/06/07 20:35:27 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	void	*ptr;
+	char	*ptr;
+	int		i;
 
-	ptr = malloc(nmemb * size);
-	if (!ptr)
+	if (!s1 || !set)
 		return (NULL);
-	ft_memset(ptr, 0, nmemb * size);
+	while (*s1 && ft_strchr(set, *s1))
+		s1++;
+	i = ft_strlen(s1);
+	while (i && ft_strchr(set, s1[i]))
+		i--;
+	ptr = ft_substr((char *) s1, 0, i + 1);
 	return (ptr);
 }

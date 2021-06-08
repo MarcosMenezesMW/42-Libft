@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mameneze <mameneze@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: mameneze <mwmms@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/17 22:57:57 by user42            #+#    #+#             */
-/*   Updated: 2021/06/06 12:26:38 by mameneze         ###   ########.fr       */
+/*   Created: 2021/05/20 20:01:18 by user42            #+#    #+#             */
+/*   Updated: 2021/06/07 20:34:15 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char	*p_src;
-	unsigned char	*p_dest;
+	unsigned char	*str1;
+	unsigned char	*str2;
 	size_t			i;
+	int				len;
 
-	p_dest = dest;
-	p_src = (unsigned char *)src;
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
 	i = 0;
-	if (!p_dest && !p_src)
-		return (NULL);
+	len = 0;
+	if (n == 0 || str1 == str2)
+		return (len);
 	while (i < n)
 	{
-		p_dest[i] = p_src[i];
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
 		i++;
 	}
-	return (dest);
+	return (len);
 }

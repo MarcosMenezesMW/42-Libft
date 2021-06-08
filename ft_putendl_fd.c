@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mameneze <mameneze@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: mameneze <mwmms@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/17 20:30:03 by user42            #+#    #+#             */
-/*   Updated: 2021/06/03 19:38:15 by mameneze         ###   ########.fr       */
+/*   Created: 2021/05/30 19:22:48 by mameneze          #+#    #+#             */
+/*   Updated: 2021/06/07 20:34:37 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
-void	*ft_memset(void *str, int c, size_t n)
+void	ft_putendl_fd(char *s, int fd)
 {
-	unsigned char	*p_str;
+	int	i;
 
-	p_str = str;
-	while (n > 0)
+	i = 0;
+	if (!s)
+		return ;
+	while (s[i])
 	{
-		*p_str = c;
-		p_str++;
-		n--;
+		ft_putchar_fd(s[i], fd);
+		i++;
 	}
-	return (str);
+	write(fd, "\n", 1);
 }

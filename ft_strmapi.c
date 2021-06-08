@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mameneze <mameneze@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: mameneze <mwmms@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/22 15:53:19 by user42            #+#    #+#             */
-/*   Updated: 2021/06/03 19:24:53 by mameneze         ###   ########.fr       */
+/*   Created: 2021/05/30 18:33:21 by mameneze          #+#    #+#             */
+/*   Updated: 2021/06/07 20:35:10 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	if (!c)
-		return ((char *)s + ft_strlen(s));
-	while (*s)
+	size_t	i;
+	char	*ptr;
+
+	i = 0;
+	if (!s)
+		return (NULL);
+	ptr = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!ptr)
+		return (NULL);
+	while (s[i])
 	{
-		if (*s == (unsigned char)c)
-			return ((char *)s);
-		s++;
+		ptr[i] = f(i, s[i]);
+		i++;
 	}
-	return (NULL);
+	ptr[i] = '\0';
+	return (ptr);
 }
