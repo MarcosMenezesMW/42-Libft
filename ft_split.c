@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mameneze <mameneze@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: mameneze <mwmms@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 21:14:00 by mameneze          #+#    #+#             */
-/*   Updated: 2021/06/06 17:26:07 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/06/07 21:27:26 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,12 @@ char	**ft_split(char const *s, char c)
 	int		k;
 	int		counter;
 
+	if (!s)
+		return (NULL);
 	counter = (count_words(s, c));
 	str_array = malloc(sizeof(char *) * (counter + 1));
 	j = 0;
-	if (!s || !str_array)
+	if (!str_array)
 		return (NULL);
 	while (j < counter)
 	{

@@ -6,7 +6,7 @@
 /*   By: mameneze <mwmms@hotmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 20:04:40 by mameneze          #+#    #+#             */
-/*   Updated: 2021/06/07 20:34:57 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/06/07 21:26:14 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
-	newstring = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!s1 || !s2 || !newstring)
+		return (NULL);
+	newstring = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!newstring)
 		return (NULL);
 	while (s1[i] != '\0')
 	{
